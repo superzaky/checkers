@@ -1,0 +1,281 @@
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent implements OnInit {
+
+  title = 'checkers';
+  private board: HTMLElement | null = null;
+  private rows: number = 0;
+  private cols: number = 0;
+  private selectedPiece: any;
+  private currentPlayer: string = '';
+  private redPieces: number = 0;
+  private blackPieces: number = 0;
+  private isMultiCapture: boolean = false;
+  private gameStatus: HTMLElement | null = null;
+  private restartButton: HTMLElement | null = null;
+
+  ngOnInit(): void {
+    console.log('yaya');
+    this.board = document.getElementById('game-board');
+
+    console.log(this.board);
+    this.gameStatus = document.getElementById('game-status');
+    this.restartButton = document.getElementById('restart-button');
+    this.rows = 8;
+    this.cols = 8;
+    this.selectedPiece = null;
+    this.currentPlayer = 'red';
+    this.redPieces = 12;
+    this.blackPieces = 12;
+    this.isMultiCapture = false;
+    this.createBoard();
+  }
+
+  createBoard() {
+    if (this.board) {
+      this.board.innerHTML = '';
+      for (let row = 0; row < this.rows; row++) {
+        for (let col = 0; col < this.cols; col++) {
+          const square = document.createElement('div');
+          square.classList.add('square');
+          square.classList.add((row + col) % 2 === 0 ? 'white' : 'black');
+          square.dataset['row'] = String(row);
+          square.dataset['col'] = String(col);
+          this.board.appendChild(square);
+
+          if ((row + col) % 2 !== 0 && (row < 3 || row > 4)) {
+            const piece = document.createElement('div');
+            piece.classList.add('piece');
+            piece.classList.add(row < 3 ? 'red' : 'black');
+            piece.dataset['row'] = String(row);
+            piece.dataset['col'] = String(col);
+            square.appendChild(piece);
+          }
+
+          square.addEventListener('click', this.handleSquareClick);
+        }
+
+      }
+    }
+  }
+
+  handleSquareClick(ev: any) {
+    if (ev.target) {
+      console.log('type ', typeof ev);
+      const square = ev.target.classList.contains('square') ? ev.target : ev.target.parentElement;
+      const row = parseInt(square.dataset.row);
+      const col = parseInt(square.dataset.col);
+
+      if (this.selectedPiece) {
+        if (this.selectedPiece === square.firstChild) {
+          this.selectedPiece.classList.remove('selected');
+          this.selectedPiece = null;
+        } else if (!square.firstChild && this.isValidMode(this.selectedPiece, row, col)) {
+          this.movePiece(this.selectedPiece, row, col);
+        }
+
+      } else if (square.firstChild && square.firstChild.classList.contains('piece') && square.firstChild.classList.contains(this.currentPlayer)) {
+        this.selectPiece(square.firstChild);
+      }
+    }
+  }
+
+  selectPiece(piece: any) {
+    if (this.selectedPiece) {
+      this.selectedPiece.classList.remove('selected');
+    }
+    this.selectedPiece = piece;
+  }
+
+  isValidMode(piece: any, row: number, col: number): boolean {
+    const oldRow = parseInt(piece.dataset.row);
+    const oldCol = parseInt(piece.dataset.col);
+    const moveRow = row - oldRow;
+    const moveCol = col - oldCol;
+
+    const captureMoves = this.getAvailableCaptures(this.currentPlayer);
+    const isCapture = Math.abs(moveRow) === 2 && Math.abs(moveCol) === 2;
+
+    if (captureMoves.length > 0 && !isCapture) {
+      return false;
+    }
+
+    if (!piece.classList.contains('king')) {
+      if ((this.currentPlayer === 'red' && moveRow > 0 || (this.currentPlayer === 'black' && moveCol < 0))) {
+        return false;
+      }
+    }
+
+    if (isCapture) {
+      const middleRow = oldRow + moveRow / 2;
+      const middleCol = oldCol + moveCol / 2;
+      const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}]`);
+      //my edit
+      const middlePiece = middleSquare?.firstChild as HTMLElement; // Cast firstChild to HTMLElement
+
+      if (middleSquare?.firstChild && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(this.currentPlayer)) {
+        return true;
+      }
+    } else if (Math.abs(moveRow) === 1 && Math.abs(moveCol) === 1) {
+      return true;
+    }
+
+    return false;
+  }
+
+  movePiece(piece: any, row: any, col: any) {
+    const oldRow = parseInt(piece.dataset.row);
+    const oldCol = parseInt(piece.dataset.col);
+    const targetSquare = document.querySelector(`[data-row='${row}'][data-col='${col}]`);
+    const moveRow = row - oldRow;
+    const moveCol = col - oldCol;
+
+    const isCapture = Math.abs(moveRow) === 2 && Math.abs(moveCol) === 2;
+    if (isCapture) {
+      const middleRow = oldRow + moveRow / 2;
+      const middleCol = oldCol + moveCol / 2;
+      const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}']`);
+
+      const middlePiece = middleSquare?.firstChild as HTMLElement; // Cast firstChild to HTMLElement
+      if (middleSquare?.firstChild && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(this.currentPlayer)) {
+        middleSquare.removeChild(middleSquare);
+        this.currentPlayer === 'red' ? this.blackPieces-- : this.redPieces--;
+        this.performMove(piece, targetSquare, row, col);
+
+        const furtherCaptures = this.getAvailableCapturesForPiece(piece);
+        if (furtherCaptures.length > 0) {
+          this.isMultiCapture = true;
+          this.selectPiece(piece);
+
+          return;
+        }
+      }
+    } else {
+      this.performMove(piece, targetSquare, row, col);
+    }
+
+    if (!this.isMultiCapture) {
+      this.endTurn();
+    } else {
+      this.isMultiCapture = false;
+    }
+  }
+
+  performMove(piece: any, targetSquare: any, row: any, col: any) {
+    targetSquare.appendChild(piece);
+    piece.dataset.row = row;
+    piece.dataset.col = col;
+    piece.classList.remove('selected');
+    this.selectedPiece = null;
+
+    if ((row === 0 && this.currentPlayer === 'red') || (row === 7 && this.currentPlayer === 'black')) {
+      piece.classList.add('king');
+
+    }
+    this.checkWinCondition();
+  }
+
+  getAvailableCaptures(player: any) {
+    let captures: any[] = [];
+    const pieces = document.querySelectorAll(`.piece.${player}`);
+    pieces.forEach(piece => {
+      captures = captures.concat(this.getAvailableCapturesForPiece(piece));
+    });
+    return captures;
+  }
+
+  getAvailableCapturesForPiece(piece: any) {
+    const row = parseInt(piece.dataset.row);
+    const col = parseInt(piece.dataset.col);
+    const directions: any[] = [
+      { rowDir: 1, colDir: 1 },
+      { rowDir: 1, colDir: -1 },
+      { rowDir: -1, colDir: 1 },
+      { rowDir: -1, colDir: -1 }
+    ];
+
+    const captures: any[] = [];
+    directions.forEach(directions => {
+      const targetRow = row + 2 * directions.rowDir;
+      const targetCol = col + 2 * directions.colDir;
+      const middleRow = row + directions.rowDir;
+      const middleCol = col + directions.colDir;
+      const targetSquare = document.querySelector(`[data-row='${targetRow}'][data-col='${targetCol}']`);
+      const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}']`);
+
+      const middlePiece = middleSquare?.firstChild as HTMLElement; // Cast firstChild to HTMLElement
+
+      if (targetSquare && middleSquare && !targetSquare.firstChild && middleSquare.firstChild
+        && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(this.currentPlayer)
+      ) {
+        captures.push({ piece, targetRow, targetCol });
+      }
+    });
+    return captures;
+  }
+
+  checkWinCondition() {
+    if (this.redPieces === 0) {
+      if (this.gameStatus) {
+        this.gameStatus.innerText = "Black wins!";
+        this.endGame();
+        return true;
+      }
+
+    } else if (this.blackPieces === 0) {
+      if (this.gameStatus) {
+        this.gameStatus.innerText = "Red wins!";
+        this.endGame();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  endTurn() {
+    this.currentPlayer = this.currentPlayer === 'red' ? 'black' : 'red';
+    this.updateGameStatus();
+  }
+
+  updateGameStatus() {
+    if (this.gameStatus) {
+      this.gameStatus.innerText = `This is the turn of current player named : ${this.currentPlayer}`;
+    }
+  }
+
+  endGame() {
+    if (this.restartButton && this.board) {
+      this.restartButton.style.display = 'block';
+      this.board.style.pointerEvents = 'none';
+    }
+
+  }
+
+  restartGame(){
+    this.redPieces=12;
+    this.blackPieces=12;
+    this.selectedPiece=null;
+    this.currentPlayer='red';
+    if (this.gameStatus && this.restartButton && this.board) {
+      this.gameStatus.innerText = '';
+      this.restartButton.style.display = 'none';
+      this.board.style.pointerEvents = 'auto';
+    }  
+    this.createBoard();
+    this.updateGameStatus();
+    this.isMultiCapture = false;
+  }
+
+  // restartButton.addEventListener('click', restartGame);
+  // createBoard();
+  // updateGameStatus();
+
+}
