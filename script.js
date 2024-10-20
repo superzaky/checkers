@@ -48,10 +48,27 @@ function handleSquareClick(ev) {
             selectedPiece = null;
         } else if (!square.firstChild && isValidMode(selectedPiece, row, col)) {
             movePiece(selectedPiece, row, col);
+        } else if (shouldBecomeKing(selectedPiece, row, col)) {
+            movePiece(selectedPiece, row, col);
         }
-
     } else if (square.firstChild && square.firstChild.classList.contains('piece') && square.firstChild.classList.contains(currentPlayer)) {
         selectPiece(square.firstChild);
+    }
+}
+
+function shouldBecomeKing(piece, row, col) {
+    const oldRow = parseInt(piece.dataset.row);
+    const oldCol = parseInt(piece.dataset.col);
+    const moveRow = row - oldRow;
+    const moveCol = col - oldCol;
+
+
+    if (!piece.classList.contains('king') && !isMultiCapture) {
+        if ((currentPlayer === 'red' && moveRow > 0 || (currentPlayer === 'black' && moveCol < 0))) {
+            return false;
+        }
+    } else {
+        return true;
     }
 }
 
@@ -59,6 +76,7 @@ function selectPiece(piece) {
     if (selectedPiece) {
         selectedPiece.classList.remove('selected');
     }
+    piece.classList.add('selected');
     selectedPiece = piece;
 }
 
@@ -75,20 +93,18 @@ function isValidMode(piece, row, col) {
         return false;
     }
 
-    if (!piece.classList.contains('king') && !isMultiCapture) {
-        if ((currentPlayer === 'red' && moveRow > 0 || (currentPlayer === 'black' && moveCol < 0))) {
-            return false;
-        }
-    }
+    // if (!piece.classList.contains('king') && !isMultiCapture) {
+    //     if ((currentPlayer === 'red' && moveRow > 0 || (currentPlayer === 'black' && moveCol < 0))) {
+    //         return false;
+    //     }
+    // }
 
     if (isCapture) {
         const middleRow = oldRow + moveRow / 2;
         const middleCol = oldCol + moveCol / 2;
-        const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}]`);
-        //my edit
-        const middlePiece = middleSquare?.firstChild;
+        const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}']`);
 
-        if (middleSquare?.firstChild && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(currentPlayer)) {
+        if (middleSquare.firstChild && middleSquare.firstChild.classList.contains('piece') && !middleSquare.firstChild.classList.contains(currentPlayer)) {
             return true;
         }
     } else if (Math.abs(moveRow) === 1 && Math.abs(moveCol) === 1) {
@@ -101,19 +117,34 @@ function isValidMode(piece, row, col) {
 function movePiece(piece, row, col) {
     const oldRow = parseInt(piece.dataset.row);
     const oldCol = parseInt(piece.dataset.col);
-    const targetSquare = document.querySelector(`[data-row='${row}'][data-col='${col}]`);
+    const targetSquare = document.querySelector(`[data-row='${row}'][data-col='${col}']`);
     const moveRow = row - oldRow;
     const moveCol = col - oldCol;
 
     const isCapture = Math.abs(moveRow) === 2 && Math.abs(moveCol) === 2;
+
+
+    // //make sure piece doesn't go backwards if it's not a king
+    // if (this.player == 1 && this.king == false) {
+    //     if (tile.position[0] < this.position[0]) return false;
+    //   } else if (this.player == 2 && this.king == false) {
+    //     if (tile.position[0] > this.position[0]) return false;
+    //   }
+
+    //make sure piece doesn't go backwards if it's not a king
+    if (!piece.classList.contains('king')) {
+        if ((currentPlayer === 'red' && moveRow < 0 || (currentPlayer === 'black' && moveRow > 0))) {
+            return;
+        }
+    }
+
     if (isCapture) {
         const middleRow = oldRow + moveRow / 2;
         const middleCol = oldCol + moveCol / 2;
         const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}']`);
 
-        const middlePiece = middleSquare?.firstChild;
-        if (middleSquare?.firstChild && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(currentPlayer)) {
-            middleSquare.removeChild(middleSquare);
+        if (middleSquare.firstChild && middleSquare.firstChild.classList.contains('piece') && !middleSquare.firstChild.classList.contains(currentPlayer)) {
+            middleSquare.removeChild(middleSquare.firstChild);
             currentPlayer === 'red' ? blackPieces-- : redPieces--;
             performMove(piece, targetSquare, row, col);
 
@@ -146,9 +177,8 @@ function performMove(piece, targetSquare, row, col) {
     piece.classList.remove('selected');
     selectedPiece = null;
 
-    if ((row === 0 && currentPlayer === 'red') || (row === 7 && currentPlayer === 'black')) {
+    if ((row === 7 && currentPlayer === 'red') || (row === 0 && currentPlayer === 'black')) {
         piece.classList.add('king');
-
     }
     checkWinCondition();
 }
@@ -181,9 +211,8 @@ function getAvailableCapturesForPiece(piece) {
         const targetSquare = document.querySelector(`[data-row='${targetRow}'][data-col='${targetCol}']`);
         const middleSquare = document.querySelector(`[data-row='${middleRow}'][data-col='${middleCol}']`);
 
-        const middlePiece = middleSquare?.firstChild;
         if (targetSquare && middleSquare && !targetSquare.firstChild && middleSquare.firstChild
-            && middlePiece.classList.contains('piece') && !middlePiece.classList.contains(currentPlayer)
+            && middleSquare.firstChild.classList.contains('piece') && !middleSquare.firstChild.classList.contains(currentPlayer)
         ) {
             captures.push({ piece, targetRow, targetCol });
         }
@@ -216,7 +245,7 @@ function endTurn() {
 
 function updateGameStatus() {
     if (gameStatus) {
-        gameStatus.innerText = `is the turn of current player named : ${currentPlayer}`;
+        gameStatus.innerText = `${currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1)}'s turn`;
     }
 }
 
@@ -233,11 +262,9 @@ function restartGame() {
     blackPieces = 12;
     selectedPiece = null;
     currentPlayer = 'red';
-    if (gameStatus && restartButton && board) {
-        gameStatus.innerText = '';
-        restartButton.style.display = 'none';
-        board.style.pointerEvents = 'auto';
-    }
+    gameStatus.innerText = '';
+    restartButton.style.display = 'none';
+    board.style.pointerEvents = 'auto';
     createBoard();
     updateGameStatus();
     isMultiCapture = false;
@@ -246,5 +273,4 @@ function restartGame() {
 restartButton.addEventListener('click', restartGame);
 createBoard();
 updateGameStatus();
-
 
