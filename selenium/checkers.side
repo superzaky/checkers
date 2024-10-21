@@ -1,0 +1,728 @@
+{
+  "id": "11285820-ea01-4ffb-90b4-cb51046705f5",
+  "version": "2.0",
+  "name": "checkers",
+  "url": "http://127.0.0.1:5500/index.html",
+  "tests": [{
+    "id": "0f08674f-0165-465b-a6f1-48fadad03eaa",
+    "name": "black king enforced backward capture",
+    "commands": [{
+      "id": "2041283c-9459-4738-844b-5fd8ad4e61af",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "165818b2-7407-4d3d-86e2-0d5cd4274a80",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1040x691",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e15d33d7-681c-4cb5-af8e-83034314eba0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(24) > .piece",
+      "targets": [
+        ["css=.square:nth-child(24) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[24]/div", "xpath:idRelative"],
+        ["xpath=//div[24]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a40d403-05c9-4d57-ad4b-20b13319dcad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(31)",
+      "targets": [
+        ["css=.square:nth-child(31)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[31]", "xpath:idRelative"],
+        ["xpath=//div[31]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ad89853-4ae2-4e37-ab3d-0465ed2f6324",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47) > .piece",
+      "targets": [
+        ["css=.square:nth-child(47) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]/div", "xpath:idRelative"],
+        ["xpath=//div[47]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "692e4118-9e2b-4106-a1b1-0266478bb8e0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(40)",
+      "targets": [
+        ["css=.square:nth-child(40)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[40]", "xpath:idRelative"],
+        ["xpath=//div[40]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acefc87a-defa-4d4d-beab-1818c1a840c1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(31) > .piece",
+      "targets": [
+        ["css=.square:nth-child(31) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[31]/div", "xpath:idRelative"],
+        ["xpath=//div[31]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd3843f6-6e49-478b-b658-f428edbe7f20",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(38)",
+      "targets": [
+        ["css=.square:nth-child(38)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[38]", "xpath:idRelative"],
+        ["xpath=//div[38]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b7bfb2a-806e-46c7-8463-7ea4d526e568",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(45) > .piece",
+      "targets": [
+        ["css=.square:nth-child(45) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[45]/div", "xpath:idRelative"],
+        ["xpath=//div[45]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe44c04a-6b68-4846-bec5-5513205e181b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(36)",
+      "targets": [
+        ["css=.square:nth-child(36)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[36]", "xpath:idRelative"],
+        ["xpath=//div[36]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a8f97b4-2518-4e06-b778-3a2c15d698cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(31)",
+      "targets": [
+        ["css=.square:nth-child(31)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[31]", "xpath:idRelative"],
+        ["xpath=//div[31]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c011ab7-4dcb-4cc1-9639-83be49b5c7e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(22) > .piece",
+      "targets": [
+        ["css=.square:nth-child(22) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[22]/div", "xpath:idRelative"],
+        ["xpath=//div[22]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94fcc142-8b5b-44fb-b115-cbbae3c88b76",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(29)",
+      "targets": [
+        ["css=.square:nth-child(29)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[29]", "xpath:idRelative"],
+        ["xpath=//div[29]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a537657-30b9-4818-868f-ffcbfae85f34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(31) > .piece",
+      "targets": [
+        ["css=.square:nth-child(31) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[31]/div", "xpath:idRelative"],
+        ["xpath=//div[31]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c97f413-3634-4d19-9f2a-8c080ff533bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(24)",
+      "targets": [
+        ["css=.square:nth-child(24)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[24]", "xpath:idRelative"],
+        ["xpath=//div[24]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51bd4359-ceb9-4ceb-adb1-1597da136845",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(29) > .piece",
+      "targets": [
+        ["css=.square:nth-child(29) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[29]/div", "xpath:idRelative"],
+        ["xpath=//div[29]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "120b2ad6-9bd8-4dc1-adc9-5708c293ce0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(22)",
+      "targets": [
+        ["css=.square:nth-child(22)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[22]", "xpath:idRelative"],
+        ["xpath=//div[22]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8461a205-02fd-4692-af20-af1e7fd1046f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.selected",
+      "targets": [
+        ["css=.selected", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[29]/div", "xpath:idRelative"],
+        ["xpath=//div[29]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa5536ce-fcbe-449a-b189-2983727121a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(29) > .piece",
+      "targets": [
+        ["css=.square:nth-child(29) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[29]/div", "xpath:idRelative"],
+        ["xpath=//div[29]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acdf53ae-55f7-4908-acb5-9f55b0a42842",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(36)",
+      "targets": [
+        ["css=.square:nth-child(36)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[36]", "xpath:idRelative"],
+        ["xpath=//div[36]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33163aba-8bf2-4510-9734-43c517e99c64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(43)",
+      "targets": [
+        ["css=.square:nth-child(43)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[43]", "xpath:idRelative"],
+        ["xpath=//div[43]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21ebd913-094e-4499-b466-3cf8faf25015",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(29)",
+      "targets": [
+        ["css=.square:nth-child(29)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[29]", "xpath:idRelative"],
+        ["xpath=//div[29]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "432b7c55-3c52-4ce5-adac-01f4459749fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(20) > .piece",
+      "targets": [
+        ["css=.square:nth-child(20) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[20]/div", "xpath:idRelative"],
+        ["xpath=//div[20]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5c2dfb2-c54c-47ac-846f-d39371d16dad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(38)",
+      "targets": [
+        ["css=.square:nth-child(38)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[38]", "xpath:idRelative"],
+        ["xpath=//div[38]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b43e288f-8e18-4758-a971-48de63f58954",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(15) > .piece",
+      "targets": [
+        ["css=.square:nth-child(15) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[15]/div", "xpath:idRelative"],
+        ["xpath=//div[15]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "436a8376-2af5-4bc8-b65b-fec705facf13",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(22)",
+      "targets": [
+        ["css=.square:nth-child(22)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[22]", "xpath:idRelative"],
+        ["xpath=//div[22]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a03adff1-3b65-419f-a557-938018849c05",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(22)",
+      "targets": [
+        ["css=.square:nth-child(22)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[22]", "xpath:idRelative"],
+        ["xpath=//div[22]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4acb0d4b-0c40-4c16-a4c8-835b13219255",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(50) > .piece",
+      "targets": [
+        ["css=.square:nth-child(50) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[50]/div", "xpath:idRelative"],
+        ["xpath=//div[50]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed5e162a-6211-4603-9209-e712c1563dc0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(43)",
+      "targets": [
+        ["css=.square:nth-child(43)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[43]", "xpath:idRelative"],
+        ["xpath=//div[43]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9f6d113-65a6-4624-80ae-befff9313f59",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(13) > .piece",
+      "targets": [
+        ["css=.square:nth-child(13) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[13]/div", "xpath:idRelative"],
+        ["xpath=//div[13]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb6c03a5-4301-4b9c-90ec-d5571ad35a82",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(20)",
+      "targets": [
+        ["css=.square:nth-child(20)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[20]", "xpath:idRelative"],
+        ["xpath=//div[20]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "080f0eba-ad78-4071-aaa8-2dd9600aea21",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(41) > .piece",
+      "targets": [
+        ["css=.square:nth-child(41) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[41]/div", "xpath:idRelative"],
+        ["xpath=//div[41]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c833aa57-a89a-4a0a-b818-c5e6de3a99e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(34)",
+      "targets": [
+        ["css=.square:nth-child(34)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[34]", "xpath:idRelative"],
+        ["xpath=//div[34]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "59b56267-5965-4041-becf-52d5c59f898c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(15) > .piece",
+      "targets": [
+        ["css=.square:nth-child(15) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[15]/div", "xpath:idRelative"],
+        ["xpath=//div[15]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdd9159c-9242-444a-b46a-4151e8da00ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(22)",
+      "targets": [
+        ["css=.square:nth-child(22)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[22]", "xpath:idRelative"],
+        ["xpath=//div[22]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba8fe57c-120f-41d6-83d4-1d136c524ffd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(34) > .piece",
+      "targets": [
+        ["css=.square:nth-child(34) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[34]/div", "xpath:idRelative"],
+        ["xpath=//div[34]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ff84894-ce7f-4d62-a49d-387cfd055f0c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(25)",
+      "targets": [
+        ["css=.square:nth-child(25)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[25]", "xpath:idRelative"],
+        ["xpath=//div[25]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89adbc10-7100-4dc9-be71-31f2dbc9569c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(6) > .piece",
+      "targets": [
+        ["css=.square:nth-child(6) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[6]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b762579-0c6c-4a9b-993f-230105a775ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(15)",
+      "targets": [
+        ["css=.square:nth-child(15)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[15]", "xpath:idRelative"],
+        ["xpath=//div[15]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ff4755a-d2ea-412d-be76-39d5baab3e8b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(52) > .piece",
+      "targets": [
+        ["css=.square:nth-child(52) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[52]/div", "xpath:idRelative"],
+        ["xpath=//div[52]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a39b59a3-811c-4368-a8eb-54cafb194276",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(45)",
+      "targets": [
+        ["css=.square:nth-child(45)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[45]", "xpath:idRelative"],
+        ["xpath=//div[45]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5356615-ec8b-487c-b790-a6abe80fb36e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(45)",
+      "targets": [
+        ["css=.square:nth-child(45)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[45]", "xpath:idRelative"],
+        ["xpath=//div[45]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c023890-d070-4d68-8544-d286a3115fd2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(45)",
+      "targets": [
+        ["css=.square:nth-child(45)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[45]", "xpath:idRelative"],
+        ["xpath=//div[45]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18a2d943-89cc-4d8d-8552-5570086176bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.selected",
+      "targets": [
+        ["css=.selected", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[52]/div", "xpath:idRelative"],
+        ["xpath=//div[52]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1982c2c-6a10-499a-a98e-a5be4ac06c3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(24) > .piece",
+      "targets": [
+        ["css=.square:nth-child(24) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[24]/div", "xpath:idRelative"],
+        ["xpath=//div[24]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "171f6141-f824-4640-b94a-d574d1937067",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(6)",
+      "targets": [
+        ["css=.square:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[6]", "xpath:idRelative"],
+        ["xpath=//div[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e92f2af1-2007-430e-ab38-6c2745c23d44",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(8) > .piece",
+      "targets": [
+        ["css=.square:nth-child(8) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[8]/div", "xpath:idRelative"],
+        ["xpath=//div[8]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9e761a7-ef67-4c25-81e5-8706136b9bf5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(15)",
+      "targets": [
+        ["css=.square:nth-child(15)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[15]", "xpath:idRelative"],
+        ["xpath=//div[15]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb8e87d6-939d-419c-b3a8-f12d71433a01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(53)",
+      "targets": [
+        ["css=.square:nth-child(53)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[53]", "xpath:idRelative"],
+        ["xpath=//div[53]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "930207d3-86ee-4d2c-b895-b8ebf0c07315",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(54) > .piece",
+      "targets": [
+        ["css=.square:nth-child(54) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[54]/div", "xpath:idRelative"],
+        ["xpath=//div[54]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2d058be-5e9f-430e-a0a7-2618f702690e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ad5f071-afa1-42c5-b1e3-c85edee67ba9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c6a3482-632f-4dcc-9f4e-f4775fec7784",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6f1ad46-6985-4cb6-b342-3bfddb5d615e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e847fda-40b9-465c-ba21-3d40f4d09d9c",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af249e10-493a-409c-8d67-50658d797652",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d026787-2b13-491a-84c1-0b421e86d6a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.selected",
+      "targets": [
+        ["css=.selected", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[54]/div", "xpath:idRelative"],
+        ["xpath=//div[54]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a90e1114-4e49-44e3-a56e-4d86c61f6076",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(54) > .piece",
+      "targets": [
+        ["css=.square:nth-child(54) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[54]/div", "xpath:idRelative"],
+        ["xpath=//div[54]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57bae2dd-ec6e-4960-b5c7-169fd62942a0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7630d2cc-fd57-4875-9e8d-b8e902f1baeb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bebbba78-f822-45c7-8d54-6cead40c1e98",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e82ef8b-d93e-4e55-945c-450a396c0041",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(47)",
+      "targets": [
+        ["css=.square:nth-child(47)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[47]", "xpath:idRelative"],
+        ["xpath=//div[47]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76f771ef-2c2b-48a9-aa75-78a263b114e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.selected",
+      "targets": [
+        ["css=.selected", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[54]/div", "xpath:idRelative"],
+        ["xpath=//div[54]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3d23edf-0238-4765-acaa-710af010608d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.king",
+      "targets": [
+        ["css=.king", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[6]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be05a3ab-6334-4bba-b17a-36161c6d337b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(24)",
+      "targets": [
+        ["css=.square:nth-child(24)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[24]", "xpath:idRelative"],
+        ["xpath=//div[24]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c088ece6-5835-4c9b-8684-d8a0f1e4f114",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0f08674f-0165-465b-a6f1-48fadad03eaa"]
+  }],
+  "urls": ["http://127.0.0.1:5500/index.html"],
+  "plugins": []
+}
