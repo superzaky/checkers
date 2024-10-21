@@ -93,6 +93,7 @@ function isValidMode(piece, row, col) {
         return false;
     }
 
+    //to prevent a non king to enforce captures
     // if (!piece.classList.contains('king') && !isMultiCapture) {
     //     if ((currentPlayer === 'red' && moveRow > 0 || (currentPlayer === 'black' && moveCol < 0))) {
     //         return false;
