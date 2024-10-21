@@ -713,7 +713,33 @@
         ["xpath=//div[24]", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "c3e5aa5d-927c-45d7-b566-072c5db40baf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(24) > .piece",
+      "targets": [
+        ["css=.square:nth-child(24) > .piece", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[24]/div", "xpath:idRelative"],
+        ["xpath=//div[24]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd022988-e708-4f9b-adab-205e2dc422f7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.square:nth-child(31)",
+      "targets": [
+        ["css=.square:nth-child(31)", "css:finder"],
+        ["xpath=//div[@id='game-board']/div[31]", "xpath:idRelative"],
+        ["xpath=//div[31]", "xpath:position"]
+      ],
+      "value": ""
     }]
+  }, {
+    "id": "74681f29-0860-4a66-a3ad-65afd618fa48",
+    "name": "become king and enforce a capture afterwards",
+    "commands": []
   }],
   "suites": [{
     "id": "c088ece6-5835-4c9b-8684-d8a0f1e4f114",
