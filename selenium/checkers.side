@@ -1486,17 +1486,6 @@
         ["xpath=//div[6]", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "2a618faa-9a48-48e8-b391-8f6226513428",
-      "comment": "",
-      "command": "click",
-      "target": "css=.square:nth-child(20)",
-      "targets": [
-        ["css=.square:nth-child(20)", "css:finder"],
-        ["xpath=//div[@id='game-board']/div[20]", "xpath:idRelative"],
-        ["xpath=//div[20]", "xpath:position"]
-      ],
-      "value": ""
     }]
   }],
   "suites": [{

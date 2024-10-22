@@ -48,7 +48,7 @@ function handleSquareClick(ev) {
             selectedPiece = null;
         } else if (!square.firstChild && isValidMode(selectedPiece, row, col)) {
             movePiece(selectedPiece, row, col);
-        } else if (shouldBecomeKing(selectedPiece, row, col)) {
+        } else if (shouldBecomeKing(selectedPiece, row, col) && isValidMode(selectedPiece, row, col)) {
             movePiece(selectedPiece, row, col);
         }
     } else if (square.firstChild && square.firstChild.classList.contains('piece') && square.firstChild.classList.contains(currentPlayer)) {
@@ -108,7 +108,7 @@ function isValidMode(piece, row, col) {
         if (middleSquare.firstChild && middleSquare.firstChild.classList.contains('piece') && !middleSquare.firstChild.classList.contains(currentPlayer)) {
             return true;
         }
-    } else if (Math.abs(moveRow) === 1 && Math.abs(moveCol) === 1) {
+    } else if (Math.abs(moveRow) === 1 && Math.abs(moveCol) === 1) { //to ensure correct movement is made
         return true;
     }
 
