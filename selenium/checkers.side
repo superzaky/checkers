@@ -1040,13 +1040,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "4682c325-b098-4332-9195-8b0b669a6fcb",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1187x853",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "e43f171a-8b94-444c-b25d-76883a6d9b37",
       "comment": "",
       "command": "click",
