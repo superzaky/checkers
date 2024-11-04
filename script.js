@@ -29,15 +29,12 @@ function createBoard() {
                 piece.dataset.col = col;
                 square.appendChild(piece);
             }
-
             square.addEventListener('click', handleSquareClick);
         }
-
     }
 }
 
 function handleSquareClick(ev) {
-    console.log(ev);
     const square = ev.target.classList.contains('square') ? ev.target : ev.target.parentElement;
     const row = parseInt(square.dataset.row);
     const col = parseInt(square.dataset.col);
@@ -92,13 +89,6 @@ function isValidMode(piece, row, col) {
     if (captureMoves.length > 0 && !isCapture) {
         return false;
     }
-
-    //to prevent a non king to enforce captures
-    // if (!piece.classList.contains('king') && !isMultiCapture) {
-    //     if ((currentPlayer === 'red' && moveRow > 0 || (currentPlayer === 'black' && moveCol < 0))) {
-    //         return false;
-    //     }
-    // }
 
     if (isCapture) {
         const middleRow = oldRow + moveRow / 2;
@@ -196,12 +186,33 @@ function getAvailableCaptures(player) {
 function getAvailableCapturesForPiece(piece) {
     const row = parseInt(piece.dataset.row);
     const col = parseInt(piece.dataset.col);
-    const directions = [
-        { rowDir: 1, colDir: 1 },
-        { rowDir: 1, colDir: -1 },
-        { rowDir: -1, colDir: 1 },
-        { rowDir: -1, colDir: -1 }
-    ];
+    let directions = null
+    let waarde = null;
+
+    if (piece.classList.contains('king')) {
+        directions = [
+            { rowDir: 1, colDir: 1 },
+            { rowDir: 1, colDir: -1 },
+            { rowDir: -1, colDir: 1 },
+            { rowDir: -1, colDir: -1 }
+        ];
+        waarde = 'king';
+    } else {
+        if (piece.classList.contains('red')) {
+            directions = [
+                { rowDir: 1, colDir: 1 },
+                { rowDir: 1, colDir: -1 }
+            ];
+            waarde = 'red';
+        } 
+        if (piece.classList.contains('black')) {
+            directions = [
+                { rowDir: -1, colDir: 1 },
+                { rowDir: -1, colDir: -1 }
+            ];
+            waarde = 'black';
+        } 
+    }
 
     const captures = [];
     directions.forEach(directions => {
@@ -228,7 +239,6 @@ function checkWinCondition() {
             endGame();
             return true;
         }
-
     } else if (blackPieces === 0) {
         if (gameStatus) {
             gameStatus.innerText = "Red wins!";
@@ -255,7 +265,6 @@ function endGame() {
         restartButton.style.display = 'block';
         board.style.pointerEvents = 'none';
     }
-
 }
 
 function restartGame() {
@@ -274,4 +283,3 @@ function restartGame() {
 restartButton.addEventListener('click', restartGame);
 createBoard();
 updateGameStatus();
-
